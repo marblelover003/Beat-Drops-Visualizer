@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="waveform"></div>
-    Select a song below using these buttons and watch it get visualized above!<br>
+    Select a song below using these buttons and watch it get WaveSurfed above!<br>
     <button onclick="load(1)"><b>Wicked</b> by <em>Avenza</em></button>
     <button onclick="load(2)"><b>Chip Zeal</b> by <em>Big Giant Circles</em></button>
     <button onclick="load(3)"><b>Houston</b> by <em>Big Giant Circles</em></button>
@@ -67,6 +67,7 @@
       height: 100
     });
     function load(songID) {
+      wavesurfer.stop();
       switch (parseInt(songID)) {
         case 1: wavesurfer.load("Beats/Avenza - Wicked.mp3"); break;
         case 2: wavesurfer.load("Beats/Big Giant Circles - Chip Zeal.mp3"); break;
