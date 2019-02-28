@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
     <style>
       body {font-family: Montserrat; background: #555; color: #fff;}
-      button {width: 300px; text-align: center; font-family: Montserrat;}
+      button {width: 300px; text-align: center; font-family: Montserrat; font-size: 14px;}
     </style>
   </head>
   <body>
@@ -59,9 +59,10 @@
   <script>
     var wavesurfer = WaveSurfer.create({
       container: "#waveform",
-      waveColor: "#fff",
-      progressColor: "#ff0",
-      barWidth: 10
+      waveColor: "#777",
+      progressColor: "#fff",
+      cursorColor: "#000",
+      height: 100
     });
     function load(songID) {
       switch (parseInt(songID)) {
