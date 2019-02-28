@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beat Drop Visualizer</title>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+  </head>
+  <body>
+    Select a song: <select id="song">
+      <option value="">Barracuda by Noisestorm</option>
+    </select>
+    <button onclick="play_pause()" id="playPauseBtn">&#9654;</button>
+    <div id="waveform"></div>
+  </body>
+  <script>
+    var wavesurfer = WaveSurfer.create({
+      container: "#waveform",
+      waveColor: "#fff";
+      progressColor: "#ff0";
+    });
+    function play_pause() {
+      wavesurfer.playPause();
+      if (wavesurfer.isPlaying() == true) {
+        document.getElementById("playPauseBtn").innerHTML = "\u275A\u275A";
+      } else if (wavesurfer.isPlaying() == false) {
+        document.getElementById("playPauseBtn").innerHTML = "\u25B6";
+      }
+    }
+  </script>
+</html>
