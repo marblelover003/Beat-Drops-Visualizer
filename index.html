@@ -3,13 +3,58 @@
   <head>
     <title>Beat Drop Visualizer</title>
     <script src="https://unpkg.com/wavesurfer.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700">
+    <style>
+      body {font-family: Montserrat; background: #555; color: #fff;}
+      button {width: 300px; text-align: center; font-family: Montserrat;}
+    </style>
   </head>
   <body>
-    Select a song: <select id="song">
-      <option value="">Barracuda by Noisestorm</option>
-    </select>
-    <button onclick="play_pause()" id="playPauseBtn">&#9654;</button>
     <div id="waveform"></div>
+    Select a song below using these buttons and watch it get visualized above!<br>
+    <button onclick="load(1)"><b>Wicked</b> by <em>Avenza</em></button>
+    <button onclick="load(2)"><b>Chip Zeal</b> by <em>Big Giant Circles</em></button>
+    <button onclick="load(3)"><b>Houston</b> by <em>Big Giant Circles</em></button>
+    <button onclick="load(4)"><b>Sevcon</b> by <em>Big Giant Circles</em></button>
+    <button onclick="load(5)"><b>Vindicate Me</b> by <em>Big Giant Circles</em></button>
+    <button onclick="load(6)"><b>Commando Steve</b> by <em>Bossfight</em></button>
+    <button onclick="load(7)"><b>Milky Ways</b> by <em>Bossfight</em></button>
+    <button onclick="load(8)"><b>Courtesy</b> by <em>Chipzel</em></button>
+    <button onclick="load(9)"><b>Focus</b> by <em>Chipzel</em></button>
+    <button onclick="load(10)"><b>Otis</b> by <em>Chipzel</em></button>
+    <button onclick="load(11)"><b>Spectra</b> by <em>Chipzel</em></button>
+    <button onclick="load(12)"><b>The Art of War</b> by <em>Chipzel</em></button>
+    <button onclick="load(13)"><b>Chronos</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(14)"><b>Corrupted</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(15)"><b>Legacy</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(16)"><b>Logic Gatekeeper</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(17)"><b>Parallel Processing</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(18)"><b>The Lunar Whale</b> by <em>Danimal Cannon &amp; Zef</em></button>
+    <button onclick="load(19)"><b>Long Live the New Fresh</b> by <em>Danimal Cannon</em></button>
+    <button onclick="load(20)"><b>Destroid 8 Annihilate</b> by <em>Excision &amp; Far Too Loud</em></button>
+    <button onclick="load(21)"><b>Destroid 10 Funk Hole</b> by <em>Excision &amp; Space Laces</em></button>
+    <button onclick="load(22)"><b>Dance of the Incognizant</b> by <em>FantomenK</em></button>
+    <button onclick="load(23)"><b>Cascade</b> by <em>Kubbi</em></button>
+    <button onclick="load(24)"><b>FTW</b> by <em>Lets Be Friends</em></button>
+    <button onclick="load(25)"><b>Checkpoint</b> by <em>Nitro Fun &amp; Hyper Potions</em></button>
+    <button onclick="load(26)"><b>Cheat Codes</b> by <em>Nitro Fun</em></button>
+    <button onclick="load(27)"><b>Final Boss</b> by <em>Nitro Fun</em></button>
+    <button onclick="load(28)"><b>New Game</b> by <em>Nitro Fun</em></button>
+    <button onclick="load(29)"><b>Barracuda</b> by <em>Noisestorm</em></button>
+    <button onclick="load(30)"><b>Sugar Rush</b> by <em>PIXL</em></button>
+    <button onclick="load(31)"><b>Try This</b> by <em>Pegboard Nerds</em></button>
+    <button onclick="load(32)"><b>Unlocked</b> by <em>Plesco</em></button>
+    <button onclick="load(33)"><b>Termination Shock</b> by <em>Sabrepulse</em></button>
+    <button onclick="load(34)"><b>Paper Dolls</b> by <em>Shawn Daley</em></button>
+    <button onclick="load(35)"><b>FOX</b> by <em>Shirobon</em></button>
+    <button onclick="load(36)"><b>Into the Zone</b> by <em>Shirobon</em></button>
+    <button onclick="load(37)"><b>On the Run</b> by <em>Shirobon</em></button>
+    <button onclick="load(38)"><b>Cool Friends</b> (Murtagh &amp; Veschell Remix) by <em>Silva Hound</em></button>
+    <button onclick="load(39)"><b>HYPE</b> by <em>Tokyo Machine</em></button>
+    <button onclick="load(40)"><b>Once Again</b> by <em>Tristam</em></button>
+    <button onclick="load(41)"><b>Till It&apos;s Over</b> by <em>Tristam</em></button>
+    <button onclick="load(42)"><b>Core</b> by <em>Zef</em></button>
+    <button onclick="load(43)"><b>Peer Gynt</b> by <em>cYsmix</em></button>
   </body>
   <script>
     var wavesurfer = WaveSurfer.create({
@@ -17,13 +62,58 @@
       waveColor: "#fff";
       progressColor: "#ff0";
     });
-    function play_pause() {
-      wavesurfer.playPause();
-      if (wavesurfer.isPlaying() == true) {
-        document.getElementById("playPauseBtn").innerHTML = "\u275A\u275A";
-      } else if (wavesurfer.isPlaying() == false) {
-        document.getElementById("playPauseBtn").innerHTML = "\u25B6";
+    function load(songID) {
+      switch (parseInt(songID)) {
+        case 1: wavesurfer.load("Beats/Avenza - Wicked.mp3"); break;
+        case 2: wavesurfer.load("Beats/Big Giant Circles - Chip Zeal.mp3"); break;
+        case 3: wavesurfer.load("Beats/Big Giant Circles - Houston.mp3"); break;
+        case 4: wavesurfer.load("Beats/Big Giant Circles - Sevcon.mp3"); break;
+        case 5: wavesurfer.load("Beats/Big Giant Circles - Vindicate Me.mp3"); break;
+        case 6: wavesurfer.load("Beats/Bossfight - Commando Steve.mp3"); break;
+        case 7: wavesurfer.load("Beats/Bossfight - Milky Ways.mp3"); break;
+        case 8: wavesurfer.load("Beats/Chipzel - Courtesy.mp3"); break;
+        case 9: wavesurfer.load("Beats/Chipzel - Focus.mp3"); break;
+        case 10: wavesurfer.load("Beats/Chipzel - Otis.mp3"); break;
+        case 11: wavesurfer.load("Beats/Chipzel - Spectra.mp3"); break;
+        case 12: wavesurfer.load("Beats/Chipzel - The Art of War.mp3"); break;
+        case 13: wavesurfer.load("Beats/Danimal Cannon & Zef - Chronos.mp3"); break;
+        case 14: wavesurfer.load("Beats/Danimal Cannon & Zef - Corrupted.mp3"); break;
+        case 15: wavesurfer.load("Beats/Danimal Cannon & Zef - Legacy.mp3"); break;
+        case 16: wavesurfer.load("Beats/Danimal Cannon & Zef - Logic Gatekeeper.mp3"); break;
+        case 17: wavesurfer.load("Beats/Danimal Cannon & Zef - Parallel Processing.mp3"); break;
+        case 18: wavesurfer.load("Beats/Danimal Cannon & Zef - The Lunar Whale.mp3"); break;
+        case 19: wavesurfer.load("Beats/Danimal Cannon - Long Live the New Fresh.mp3"); break;
+        case 20: wavesurfer.load("Beats/Excision & Far Too Loud - Destroid 8 Annihilate.mp3"); break;
+        case 21: wavesurfer.load("Beats/Excision & Space Laces - Destroid 10 Funk Hole.mp3"); break;
+        case 22: wavesurfer.load("Beats/FantomenK - Dance of the Incognizant.mp3"); break;
+        case 23: wavesurfer.load("Beats/Kubbi - Cascade.mp3"); break;
+        case 24: wavesurfer.load("Beats/Lets Be Friends - FTW.mp3"); break;
+        case 25: wavesurfer.load("Beats/Nitro Fun & Hyper Potions - Checkpoint.mp3"); break;
+        case 26: wavesurfer.load("Beats/Nitro Fun - Cheat Codes.mp3"); break;
+        case 27: wavesurfer.load("Beats/Nitro Fun - Final Boss.mp3"); break;
+        case 28: wavesurfer.load("Beats/Nitro Fun - New Game.mp3"); break;
+        case 29: wavesurfer.load("Beats/Noisestorm - Barracuda.mp3"); break;
+        case 30: wavesurfer.load("Beats/PIXL - Sugar Rush.mp3"); break;
+        case 31: wavesurfer.load("Beats/Pegboard Nerds - Try This.mp3"); break;
+        case 32: wavesurfer.load("Beats/Plesco - Unlocked.mp3"); break;
+        case 33: wavesurfer.load("Beats/Sabrepulse - Termination Shock.mp3"); break;
+        case 34: wavesurfer.load("Beats/Shawn Daley - Paper Dolls.mp3"); break;
+        case 35: wavesurfer.load("Beats/Shirobon - FOX.mp3"); break;
+        case 36: wavesurfer.load("Beats/Shirobon - Into the Zone.mp3"); break;
+        case 37: wavesurfer.load("Beats/Shirobon - On the Run.mp3"); break;
+        case 38: wavesurfer.load("Beats/Silva Hound - Cool Friends (Murtagh & Veschell Remix).mp3"); break;
+        case 39: wavesurfer.load("Beats/Tokyo Machine - HYPE.mp3"); break;
+        case 40: wavesurfer.load("Beats/Tristam - Once Again.mp3"); break;
+        case 41: wavesurfer.load("Beats/Tristam - Till It's Over.mp3"); break;
+        case 42: wavesurfer.load("Beats/Zef - Core.mp3"); break;
+        case 43: wavesurfer.load("Beats/cYsmix - Peer Gynt.mp3"); break;
       }
+      wavesurfer.on("ready", function() {
+        wavesurfer.play();
+      });
+      wavesurfer.on("finish", function() {
+        wavesurfer.stop();
+      });
     }
   </script>
 </html>
